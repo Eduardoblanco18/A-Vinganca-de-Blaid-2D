@@ -3,6 +3,13 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5;
+    [SerializeField] private float jumpForce = 3;
+    private Rigidbody2D playerRigidbody;
+
+    private void Awake()
+    {
+        playerRigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
@@ -17,6 +24,6 @@ public class PlayerBehavior : MonoBehaviour
 
     private void HandleJump()
     {
-        Debug.Log("Estou pulando!");
+        playerRigidbody.linearVelocity += Vector2.up * jumpForce;
     }
 }
