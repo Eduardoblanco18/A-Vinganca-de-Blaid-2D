@@ -4,11 +4,14 @@ public class PlayerAnim : MonoBehaviour
 {
     private Animator animator;
     private IsGroundedChecker isGrounded;
+    private int NumberAttacks = 0;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         isGrounded = GetComponent<IsGroundedChecker>();
+
+        GameManager.Instance.inputManager.OnAttack += PlayAttackAnim;
     }
 
     private void Update()
@@ -18,5 +21,23 @@ public class PlayerAnim : MonoBehaviour
 
         bool Grounded = isGrounded.IsGrounded();
         animator.SetBool("Grounded", Grounded);
+    }
+
+    private void PlayAttackAnim()
+    {
+        if (NumberAttacks == 0)
+        {
+            animator.SetTrigger("Attack1");
+            NumberAttacks++;
+        } else if(NumberAttacks == 1)
+        {
+            animator.SetTrigger("Attack2");
+            NumberAttacks++;
+        } else
+        {
+            animator.SetTrigger("Attack3");
+            NumberAttacks = 0;
+        }
+        
     }
 }
