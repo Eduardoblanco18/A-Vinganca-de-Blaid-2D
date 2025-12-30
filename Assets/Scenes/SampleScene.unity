@@ -6434,7 +6434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794b5008b92186d4190cc791a4de574d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  moveSpeed: 10
+  moveSpeed: 8
   jumpForce: 8
   attackRange: 0.5
   attackPosition: {fileID: 974932442}
@@ -6455,7 +6455,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0.5
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -6467,7 +6467,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1499318579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6622,7 +6622,7 @@ GameObject:
   - component: {fileID: 1904631407}
   - component: {fileID: 1904631406}
   - component: {fileID: 1904631405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
