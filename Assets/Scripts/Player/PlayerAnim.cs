@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
+    [SerializeField] private bool Blood;
+
     private Animator animator;
     private IsGroundedChecker isGrounded;
+    private Health playerHealth;
     private int NumberAttacks = 0;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         isGrounded = GetComponent<IsGroundedChecker>();
+
+        playerHealth = GetComponent<Health>();
+        playerHealth.OnHurt += PlayHurtAnim;
+        playerHealth.OnDead += PlayDeadAnim;
 
         GameManager.Instance.inputManager.OnAttack += PlayAttackAnim;
     }
@@ -21,6 +28,17 @@ public class PlayerAnim : MonoBehaviour
 
         bool Grounded = isGrounded.IsGrounded();
         animator.SetBool("Grounded", Grounded);
+    }
+
+    private void PlayHurtAnim()
+    {
+        animator.SetTrigger("Hurt");
+    }
+
+    private void PlayDeadAnim()
+    {
+        animator.SetTrigger("Death");
+        animator.SetBool("noBlood", Blood);
     }
 
     private void PlayAttackAnim()

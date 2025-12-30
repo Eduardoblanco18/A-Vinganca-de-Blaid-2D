@@ -26,6 +26,8 @@ public class InputManager
         OnJump?.Invoke();
     }
 
+    public void DisablePlayerInput() => playerControls.Gameplay.Disable();
+
     private void OnAttackPerformed(InputAction.CallbackContext obj)
     {
         OnAttack?.Invoke();

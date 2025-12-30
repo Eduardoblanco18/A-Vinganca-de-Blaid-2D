@@ -3,6 +3,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public AudioManager AudioManager;
+
     public InputManager inputManager { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
